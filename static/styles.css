@@ -1,0 +1,84 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+main .form-control
+{
+    /* Center form controls */
+    display: inline-block;
+
+    /* Override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* Scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* Center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* Constrain images on small screens */
+    max-width: 100%;
+}
+.buy-form{
+    margin-left:22%;
+    padding:6px;
+}
+.buy-button{
+    margin:3% 18%;
+    /*width:100%;*/
+}
+.sell-form{
+    margin-left:18%;
+    padding:6px;
+}
+
+button a {
+    text-decoration:none ;
+    color:black;
+}
+
+/*.cash{*/
+/*    font-size:1% !important;*/
+/*}*/
+
+.add-cash {
+    margin-top:3%;
+    color:blue;
+    padding:5%;
+}
+
+.add-cash a {
+    /*background-color:red;*/
+    padding:1% 2%;
+    color:blue;
+}
+
+.add-cash a:hover {
+    text-decoration:underline;
+}

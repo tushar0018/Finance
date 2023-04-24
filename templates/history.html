@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    history
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Symbol</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">shares</th>
+                <th scope="col">price</th>
+                <th scope="col">Type</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in history %}
+                {% if x["share_type"] == "buy" %}
+                    <tr class="table-success">
+                        <th scope="row">{{ x["id"]}}</th>
+                        <td>{{ x["symbol"]}}</td>
+                        <td>{{ x["name"] }}</td>
+                        <td>{{ x["no_share"] }}</td>
+                        <td>{{ x["price"] }}</td>
+                        <td>{{ x["share_type"]}}</td>
+                        <td>{{ x["date"] }}</td>
+                    </tr>
+                {% else %}
+                    <tr class="table-danger">
+                        <th scope="row">{{ x["id"]}}</th>
+                        <td>{{ x["symbol"]}}</td>
+                        <td>{{ x["name"] }}</td>
+                        <td>-{{ x["no_share"] }}</td>
+                        <td>{{ x["price"] }}</td>
+                        <td>{{ x["share_type"]}}</td>
+                        <td>{{ x["date"] }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">shares</th>
+                <th scope="col">price</th>
+                <th scope="col">LTP</th>
+                <th scope="col">Profit/Loss</th>
+                <th scope="col">Button</th>
+                <th scope="col">Chart</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in portfolio %}
+                <tr>
+                    <td>{{ x["symbol"]}}</td>
+                    <td>{{ x["name"] }}</td>
+                    <td>{{ x["share"] }}</td>
+                    <td>{{ x["price"] }}</td>
+                    <td>{{ x["ltp"]}}</td>
+                    {% if x["gain"] > 0 %}
+                        <td style="color:green;">+{{ x["gain"] }}</td>
+                    {% else %}
+                        <td style="color:red;">-{{ x["gain"] }}</td>
+                    {% endif %}
+                    <td><button class="btn btn-success" style="margin:2%;"><a href="/buy" >B</a></button><button class="btn btn-danger" style="margin:0 2%;"><a href="/sell" >S</a></button></td>
+                    <!--<td><button class="btn btn-success" style="margin:2%;"><a href="/chart" >B</a></button></td>   -->
+                    <td>
+                        <form action="/chart" >
+                            <input name="symbol" type="hidden" value="{{ x["symbol"]}}">
+                            <button type="submit" class="btn btn-primary">Chart</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <th scope="row">$</th>
+                <td colspan="2" class="cash">Cash:</td>
+                <td colspan="3" class="cash">{{ cash[0]["cash"] }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+     <!--TradingView Widget BEGIN-->
+    <div class="tradingview-widget-container">
+      <div id="tradingview_ba246"></div>
+      <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+      <script type="text/javascript">
+      new TradingView.widget(
+      {
+      "width": 980,
+      "height": 610,
+      "symbol": "NASDAQ:{{symbol}}",
+      "interval": "D",
+      "timezone": "Etc/UTC",
+      "theme": "dark",
+      "style": "1",
+      "locale": "in",
+      "toolbar_bg": "#f1f3f6",
+      "enable_publishing": false,
+      "allow_symbol_change": true,
+      "container_id": "tradingview_ba246"
+    }
+      );
+      </script>
+    </div>
+     <!--TradingView Widget END-->
+
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+
+    <h4>{{ data.name }}</h4>
+    <h5>( {{ data.symbol }})</h5>
+    <p> Latest trading price is {{data.price | usd}}.</p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                 <th scope="col">#</th>
+                 <th scope="col">KEY</th>
+                 <th scope="col">VALUE</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Name</td>
+                <td>{{ data.name }}</td>
+            </tr>
+            <tr>
+                 <th scope="row">2</th>
+                 <td>Symbol</td>
+                 <td>{{ data.symbol }}</td>
+            </tr>
+            <tr>
+                 <th scope="row">3</th>
+                 <td> LTP Price</td>
+                 <td>{{ data["price"] }}</td>
+            </tr>
+            <tr>
+                 <th scope="row">4</th>
+                 <td>MarketCap</td>
+                 <td>${{ data.marketcap }}</td>
+            </tr>
+            <tr>
+                 <th scope="row">5</th>
+                 <td>Day High</td>
+                 <td>{{ data.dayhigh }}</td>
+            </tr>
+            <tr>
+                 <th scope="row">6</th>
+                 <td>Day Low</td>
+                 <td>{{ data.daylow }}</td>
+            </tr>
+            <tr>
+                 <th scope="row">7</th>
+                 <td>Volume</td>
+                 <td>{{ data.volume }}</td>
+            </tr>
+            <tr>
+                 <th scope="row">8</th>
+                 <td>Previous Close</td>
+                 <td>{{ data.preclose}}</td>
+            </tr>
+            <tr>
+                 <th scope="row">9</th>
+                 <td>Previous Volume</td>
+                 <td>{{ data.volume }}</td>
+            </tr>
+            <tr>
+                 <th scope="row">10</th>
+                 <td>PE Ratio</td>
+                 <td>{{ data.peratio }}</td>
+            </tr>
+            <tr>
+                 <th scope="row">11</th>
+                 <td>52 Week High</td>
+                 <td>{{ data.week52high }}</td>
+            </tr>
+            <tr>
+                 <th scope="row">12</th>
+                 <td>52 Week Low</td>
+                 <td>{{ data.week52low}}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

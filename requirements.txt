@@ -1,0 +1,6 @@
+cs50
+Flask
+Flask-Session
+requests
+datetime
+API_key=pk_03b36702149f47c7843fd661ce160f94

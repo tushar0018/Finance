@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add cash
+{% endblock %}
+
+{% block main %}
+
+    <h4 style="margin:0 0 5% 0;">Current Availabel Cash : {{ info[0]["cash"] | usd}}</h4>
+
+    <form action="/addcash" method="post">
+        <div class="form-group">
+            <label >Card Number:</label>
+            <input autocomplete="off" autofocus required class="form-control" name="" placeholder="fake card number" type="text">
+        </div>
+        <div class="form-group">
+            <label>cvv:</label>
+            <input class="form-control" required name="" placeholder="cvv" type="number">
+        </div>
+        <div class="form-group">
+            <label>Expiry Date:</label>
+            <input class="form-control" required name="" placeholder="expiry date" type="date">
+        </div>
+        <div class="form-group">
+            <label>Amount:</label>
+            <input class="form-control"required name="cash" placeholder="Amount" type="number" max="10000">
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+
+{% endblock %}

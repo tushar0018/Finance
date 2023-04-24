@@ -1,0 +1,26 @@
+{% extends "layout.html"%}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    {% for x in cash %}
+        <!--<p style="size:60px;">Cash Availabel : <p style="size:100px;"> {{ x.cash }} </p>  </p>-->
+        <h5>Cash Availabel: <h4>{{ x.cash }}</h4></h5>
+    {% endfor %}
+    <form action="/sell" method="post">
+        <div class="row">
+            <label for="symbol" class="sell-form">Symbol:</label>
+            <select name="symbol" class="form-control" autofocus required>
+                <option value="" selected disabled>Symbols--Share in Hand</option>
+                {% for x in symbols %}
+                    <option value="{{x["symbol"]}}">{{x["symbol"]}}--{{x["share"]}}</option>
+                {% endfor %}
+             </select>
+            <input autocomplete="off" autofocus class="form-control sell-form" name="shares" placeholder="Quantity" min="1"  required type="number">
+
+            <button type="submit" class="btn btn-danger btn-lg btn-block buy-button">Sell</button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html"%}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+    {% for x in cash %}
+        <!--<p style="size:60px;">Cash Availabel : <p style="size:100px;"> {{ x.cash }} </p>  </p>-->
+        <h5>Cash Availabel: <h4>{{ x.cash }}</h4></h5>
+    {% endfor %}
+    <form action="/buy" method="post">
+        <div class="row">
+            <input autocomplete="off" autofocus class="form-control buy-form" name="symbol" placeholder="Symbol"  required type="text">
+            <input autocomplete="off" autofocus class="form-control buy-form" name="shares" placeholder="Quantity"   required type="text">
+
+            <button type="submit" class="btn btn-success btn-lg btn-block buy-button">Buy</button>
+        </div>
+    </form>
+{% endblock %}
